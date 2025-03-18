@@ -1,45 +1,60 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
-export default {
-    darkMode: ["class"],
-    content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+const config = {
+  darkMode: ['class'],
+  content: [
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
+  prefix: '',
   theme: {
-	extend: {
-	  colors: {
-		main: 'var(--main)',
-		overlay: 'var(--overlay)',
-		bg: 'var(--bg)',
-		bw: 'var(--bw)',
-		blank: 'var(--blank)',
-		text: 'var(--text)',
-		mtext: 'var(--mtext)',
-		border: 'var(--border)',
-		ring: 'var(--ring)',
-		ringOffset: 'var(--ring-offset)',
-		
-		secondaryBlack: '#212121', 
-	  },
-	  borderRadius: {
-		base: '6px'
-	  },
-	  boxShadow: {
-		shadow: 'var(--shadow)'
-	  },
-	  translate: {
-		boxShadowX: '-2px',
-		boxShadowY: '2px',
-		reverseBoxShadowX: '2px',
-		reverseBoxShadowY: '-2px',
-	  },
-	  fontWeight: {
-		base: '500',
-		heading: '800',
-	  },
-	},
+    extend: {
+      colors: {
+        main: '#a388ee',
+        mainAccent: '#9e66ff', // not needed for shadcn components
+        overlay: 'rgba(0,0,0,0.8)',
+
+        // light mode
+        bg: '#e3dff2',
+        text: '#000',
+        border: '#000',
+
+        // dark mode
+        darkBg: '#272733',
+        darkText: '#eeefe9',
+        darkBorder: '#000',
+        secondaryBlack: '#212121', // opposite of plain white, not used pitch black because borders and box-shadows are that color
+      },
+      borderRadius: {
+        base: '5px',
+      },
+      boxShadow: {
+        light: '4px 4px 0px 0px #000',
+        dark: '4px 4px 0px 0px #000',
+      },
+      translate: {
+        boxShadowX: '4px',
+        boxShadowY: '4px',
+        reverseBoxShadowX: '-4px',
+        reverseBoxShadowY: '-4px',
+      },
+      fontWeight: {
+        base: '500',
+        heading: '700',
+      },
+    },
+    screens: {
+      smallHeight: { raw: '(max-height: 550px)' },
+      w800: { max: '800px' },
+      w700: { max: '700px' },
+      w600: { max: '600px' },
+      w500: { max: '500px' },
+      w450: { max: '450px' },
+      w400: { max: '400px' },
+    },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  plugins: [require('tailwindcss-animate')],
+} satisfies Config
+
+export default config

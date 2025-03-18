@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<img src="public/preview.png" />
 
-## Getting Started
+# Windowed portfolio
 
-First, run the development server:
+Windowed portfolio is a neobrutalism-styled nextjs tailwind template for portfolios.
+
+## Get started
+
+[Create a new repo](https://github.com/neobrutalism-templates/windowed-portfolio/generate) from this template.
+
+### Installation
+
+This template uses `pnpm` package manager so make sure you have it installed.
+
+To install all dependencies run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the app locally:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Config
 
-## Learn More
+- Inside `layout.tsx` update the metadata
+- Inside `page.tsx` update the content
+- Update the `favicon.ico`
 
-To learn more about Next.js, take a look at the following resources:
+### Content config
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Links on the home page
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To update the links on the home page go to `src/app/page.tsx` and inside `links` array add or remove objects. Each object has 2 properties, `icon`, and `href`. `href` is self-explanatory, and inside `icon` you'll put an icon imported from `@icons-pack/react-simple-icons`. Visit [simpleicons.org](https://simpleicons.org/) to see all the icons. Import them by adding `Si` prefix to their name as I imported them in `links` component.
 
-## Deploy on Vercel
+#### Updating the `previewImage` in `src/app/work/page.tsx`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Make sure to put `/` + name of the picture that's inside public folder. e.g. you have a `my-project.png` picture inside `public` folder, you'll type:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```ts
+previewImage: '/my-project.png'
+```
+
+##### Image aspect ratio
+
+Inside `app/work/page.tsx`  `previewImage` is wrapped inside AspectRatio component. Change the `ratio` prop so it suits your needs (default preview images are 600 x 300, so I set the ratio to be `2 / 1`).
+
+### Styling
+
+To change the styling visit [styling docs](https://neobrutalism-components.vercel.app/docs/styling), and copy the desired styling to tailwind config like it's shown in the styling docs.
+
+I didn't add custom font weights for this template since I think it's best that way.
